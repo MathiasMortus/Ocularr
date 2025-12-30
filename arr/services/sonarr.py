@@ -170,5 +170,5 @@ def add_from_media(media_item):
         ui_print(f"Sonarr: Could not find series with TVDB ID: {tvdb_id}")
         return False
 
-    # Add series to Sonarr with monitoring enabled
-    return add_series(series_data, monitored=True, search_missing=False)
+    # Add series to Sonarr with monitoring enabled and trigger automatic search
+    return add_series(series_data, monitored=True, search_missing=True)

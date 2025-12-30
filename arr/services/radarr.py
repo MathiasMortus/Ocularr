@@ -180,5 +180,5 @@ def add_from_media(media_item):
         ui_print(f"Radarr: Could not find movie with TMDB: {tmdb_id} or IMDB: {imdb_id}")
         return False
 
-    # Add movie to Radarr with monitoring enabled
-    return add_movie(movie_data, monitored=True, search_now=False)
+    # Add movie to Radarr with monitoring enabled and trigger automatic search
+    return add_movie(movie_data, monitored=True, search_now=True)

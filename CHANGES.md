@@ -1,6 +1,6 @@
 # Complete List of Changes
 
-This document lists all changes made to transform plex_debrid into a Plex Watchlist → Sonarr/Radarr integration tool.
+This document lists all changes made to transform plex_debrid into plex_monitor, a Plex Watchlist → Sonarr/Radarr integration tool.
 
 ## Files Created
 

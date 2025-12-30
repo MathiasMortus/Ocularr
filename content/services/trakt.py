@@ -53,7 +53,7 @@ def setup(self, new=False):
                 if settings[int(choice) - 1].name == "Trakt lists":
                     print()
                     print(
-                        "You can define which trakt lists should be monitored by plex_debrid. This includes public lists and your trakt users watchlists and collections.")
+                        "You can define which trakt lists should be monitored by plex_monitor. This includes public lists and your trakt users watchlists and collections.")
                     print()
                     print('Currently monitored trakt lists: "' + str(lists) + '"')
                     print()
@@ -65,7 +65,7 @@ def setup(self, new=False):
                     choice = input('Choose an action: ')
                     print()
                     if choice == '1':
-                        print("Choose a trakt list that should be monitored by plex_debrid.")
+                        print("Choose a trakt list that should be monitored by plex_monitor.")
                         print()
                         i = 1
                         indices = []
@@ -157,7 +157,7 @@ def logerror(response):
         ui_print("[trakt] (exception at " + location + ")", debug=ui_settings.debug)
     if response.status_code == 401:
         ui_print("[trakt] error: (401 unauthorized): trakt api key for user '" + current_user[0]
-            + "' does not seem to work. Consider re-authorizing plex_debrid for this trakt user.")
+            + "' does not seem to work. Consider re-authorizing plex_monitor for this trakt user.")
 
 def get_error_location():
     """Get the full stack trace for error reporting"""
@@ -282,7 +282,7 @@ def should_refresh_token(user_tokens):
         # Refresh 1 hour before expiry
         refresh_before_expiry = 3600  # 1 hour in seconds
         return current_time >= (user_tokens['expires_at'] - refresh_before_expiry)
-    ui_print("[trakt] error: Token expiry missing. Please re-authorize plex_debrid for this trakt user.")
+    ui_print("[trakt] error: Token expiry missing. Please re-authorize plex_monitor for this trakt user.")
     return True
 
 def save_trakt_tokens(username, new_tokens):
@@ -782,7 +782,7 @@ class library(classes.library):
             print()
         back = False
         while not back:
-            print('Please choose the trakt user whos trakt collection plex_debrid should use to determine your current media collection.')
+            print('Please choose the trakt user whos trakt collection plex_monitor should use to determine your current media collection.')
             print()
             indices = []
             for index, user in enumerate(users):
@@ -861,7 +861,7 @@ class library(classes.library):
                 print()
             back = False
             while not back:
-                print('Please choose the trakt user whos trakt collection plex_debrid should update after a successful download.')
+                print('Please choose the trakt user whos trakt collection plex_monitor should update after a successful download.')
                 print()
                 indices = []
                 for index, user in enumerate(users):

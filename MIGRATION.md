@@ -1,6 +1,6 @@
-# Migration Guide: plex_debrid 2.x → Sonarr/Radarr Integration
+# Migration Guide: plex_debrid 2.x → plex_monitor
 
-This guide helps you migrate from the original plex_debrid (with debrid services) to the new Sonarr/Radarr integration.
+This guide helps you migrate from the original plex_debrid (with debrid services) to plex_monitor.
 
 ## What Changed?
 
@@ -47,8 +47,8 @@ cp settings.json settings.backup.json
 git pull origin main
 
 # Or clone fresh
-git clone https://github.com/yourusername/plex_debrid.git
-cd plex_debrid
+git clone https://github.com/yourusername/plex_monitor.git
+cd plex_monitor
 ```
 
 ### Step 3: Run the Application
@@ -115,12 +115,12 @@ To avoid re-downloading content you already have:
 
 ## Understanding the New Workflow
 
-### Old Workflow (plex_debrid):
+### Old Workflow (plex_debrid 2.x):
 ```
 Watchlist → Scrape torrents → Check debrid cache → Add to debrid → Download
 ```
 
-### New Workflow:
+### New Workflow (plex_monitor):
 ```
 Watchlist → Add to Sonarr/Radarr (with monitoring) → Sonarr/Radarr handles the rest
 ```
@@ -129,7 +129,7 @@ Watchlist → Add to Sonarr/Radarr (with monitoring) → Sonarr/Radarr handles t
 
 | Feature | Old (plex_debrid) | New (Sonarr/Radarr) |
 |---------|-------------------|---------------------|
-| Quality selection | Version filters in plex_debrid | Quality profiles in Sonarr/Radarr |
+| Quality selection | Version filters in plex_debrid 2.x | Quality profiles in Sonarr/Radarr |
 | Source selection | Multiple scrapers configured | Indexers configured in Sonarr/Radarr |
 | Cache checking | Checked debrid cache before download | Sonarr/Radarr check availability |
 | Download management | Handled by debrid service | Handled by Sonarr/Radarr |
@@ -140,7 +140,7 @@ Watchlist → Add to Sonarr/Radarr (with monitoring) → Sonarr/Radarr handles t
 ### Configuration Errors
 
 **Error: "Sonarr: Not configured"**
-- Verify Sonarr base URL is accessible from where you're running plex_debrid
+- Verify Sonarr base URL is accessible from where you're running plex_monitor
 - Test: `curl http://your-sonarr-url/api/v3/system/status -H "X-Api-Key: YOUR_API_KEY"`
 
 **Error: "No TVDB ID found"**

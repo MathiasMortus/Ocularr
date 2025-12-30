@@ -155,7 +155,7 @@ def save(doprint=True):
     except Exception as e:
         print(str(e))
         print()
-        print("Error: It looks like plex_debrid can not write your settings into a config file. Make sure you are running the script with write or administator privilege.")
+        print("Error: It looks like plex_monitor can not write your settings into a config file. Make sure you are running the script with write or administator privilege.")
         print()
         input("Press enter to exit: ")
         exit()
@@ -230,7 +230,7 @@ def run(cdir = "", smode = False):
 
 def update_available():
     try:
-        response = requests.get('https://raw.githubusercontent.com/elfhosted/plex_debrid/main/ui/ui_settings.py',timeout=0.25)
+        response = requests.get('https://raw.githubusercontent.com/elfhosted/plex_monitor/main/ui/ui_settings.py',timeout=0.25)
         response = response.content.decode()
         match = regex.search(r"(?<=')([0-9]+\.[0-9]+)(?=')", response)
         if match:
@@ -248,7 +248,7 @@ def update_available():
 
 def update(settings, version):
     ui_cls('/Update ' + version[0] + '/')
-    print('There has been an update to plex_debrid, which is not compatible with your current settings:')
+    print('There has been an update to plex_monitor, which is not compatible with your current settings:')
     print()
     print(version[1])
     print()

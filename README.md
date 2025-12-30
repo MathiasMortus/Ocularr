@@ -1,4 +1,4 @@
-# Plex Watchlist → Sonarr/Radarr Integration
+# plex_monitor
 
 ## What is this?
 
@@ -31,8 +31,8 @@ This is a fork of plex_debrid that has been completely refactored to remove all 
 ## Installation
 
 ```bash
-git clone https://github.com/yourusername/plex_debrid.git
-cd plex_debrid
+git clone https://github.com/yourusername/plex_monitor.git
+cd plex_monitor
 pip install -r requirements.txt
 python main.py
 ```

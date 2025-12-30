@@ -26,7 +26,7 @@ def setup(self):
     working_key = False
     working_url = False
     if len(plex.users) == 0 and len(trakt.users) == 0:
-        print('Looks like you havent connected plex_debrid to any other content service! Please setup at least one other content service.')
+        print('Looks like you havent connected plex_monitor to any other content service! Please setup at least one other content service.')
         time.sleep(3)
         return
     try:
@@ -107,7 +107,7 @@ def setup(self):
         if choice in indices:
             if settings[int(choice) - 1].name == "Overseerr users":
                 print()
-                print("You can define which users approved requests should be downloaded by plex_debrid.")
+                print("You can define which users approved requests should be downloaded by plex_monitor.")
                 print()
                 print('Currently monitored Overseerr users: "' + str(users) + '"')
                 print()
@@ -124,7 +124,7 @@ def setup(self):
                     return True
                 elif choice == '2':
                     print(
-                        "Choose which users approved requests should be downloaded by plex_debrid. Type 'all' to add all currently listed users.")
+                        "Choose which users approved requests should be downloaded by plex_monitor. Type 'all' to add all currently listed users.")
                     print()
                     i = 0
                     indices = []
