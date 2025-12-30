@@ -1,4 +1,3 @@
-from ui.ui_print import *
 import arr.services
 
 def add(media_item):
@@ -6,6 +5,8 @@ def add(media_item):
     Route media item to appropriate arr service (Sonarr for TV, Radarr for movies)
     Returns: True if successfully added, False otherwise
     """
+    from ui.ui_print import ui_print
+
     if not hasattr(media_item, 'type'):
         ui_print("arr: Media item has no type attribute")
         return False

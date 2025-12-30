@@ -1,5 +1,4 @@
 from base import *
-from ui.ui_print import *
 
 name = 'Sonarr'
 short = 'SONARR'
@@ -15,6 +14,9 @@ def setup(cls, new=False):
 
 def test_connection():
     """Test connection to Sonarr"""
+    from ui.ui_print import ui_print
+    from ui import ui_settings
+
     if not base_url or not api_key:
         ui_print("Sonarr: base_url or api_key not configured", debug=ui_settings.debug)
         return False
@@ -37,6 +39,9 @@ def test_connection():
 
 def get_quality_profiles():
     """Get available quality profiles"""
+    from ui.ui_print import ui_print
+    from ui import ui_settings
+
     try:
         url = f"{base_url.rstrip('/')}/api/v3/qualityprofile"
         headers = {'X-Api-Key': api_key}
@@ -53,6 +58,9 @@ def get_quality_profiles():
 
 def get_root_folders():
     """Get available root folders"""
+    from ui.ui_print import ui_print
+    from ui import ui_settings
+
     try:
         url = f"{base_url.rstrip('/')}/api/v3/rootfolder"
         headers = {'X-Api-Key': api_key}
@@ -69,6 +77,9 @@ def get_root_folders():
 
 def search_series(tvdb_id):
     """Look up series by TVDB ID"""
+    from ui.ui_print import ui_print
+    from ui import ui_settings
+
     try:
         url = f"{base_url.rstrip('/')}/api/v3/series/lookup?term=tvdb:{tvdb_id}"
         headers = {'X-Api-Key': api_key}
@@ -85,6 +96,8 @@ def search_series(tvdb_id):
 
 def add_series(series_data, monitored=True, search_missing=False):
     """Add series to Sonarr"""
+    from ui.ui_print import ui_print
+
     try:
         url = f"{base_url.rstrip('/')}/api/v3/series"
         headers = {'X-Api-Key': api_key, 'Content-Type': 'application/json'}
@@ -125,6 +138,9 @@ def add_series(series_data, monitored=True, search_missing=False):
 
 def add_from_media(media_item):
     """Add series from media item to Sonarr"""
+    from ui.ui_print import ui_print
+    from ui import ui_settings
+
     if not base_url or not api_key:
         ui_print("Sonarr: Not configured (missing base_url or api_key)")
         return False

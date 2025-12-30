@@ -1,5 +1,4 @@
 from base import *
-from ui.ui_print import *
 
 name = 'Radarr'
 short = 'RADARR'
@@ -15,6 +14,9 @@ def setup(cls, new=False):
 
 def test_connection():
     """Test connection to Radarr"""
+    from ui.ui_print import ui_print
+    from ui import ui_settings
+
     if not base_url or not api_key:
         ui_print("Radarr: base_url or api_key not configured", debug=ui_settings.debug)
         return False
@@ -37,6 +39,9 @@ def test_connection():
 
 def get_quality_profiles():
     """Get available quality profiles"""
+    from ui.ui_print import ui_print
+    from ui import ui_settings
+
     try:
         url = f"{base_url.rstrip('/')}/api/v3/qualityprofile"
         headers = {'X-Api-Key': api_key}
@@ -53,6 +58,9 @@ def get_quality_profiles():
 
 def get_root_folders():
     """Get available root folders"""
+    from ui.ui_print import ui_print
+    from ui import ui_settings
+
     try:
         url = f"{base_url.rstrip('/')}/api/v3/rootfolder"
         headers = {'X-Api-Key': api_key}
@@ -69,6 +77,9 @@ def get_root_folders():
 
 def search_movie(tmdb_id=None, imdb_id=None):
     """Look up movie by TMDB or IMDB ID"""
+    from ui.ui_print import ui_print
+    from ui import ui_settings
+
     try:
         # Prefer TMDB ID
         if tmdb_id:
@@ -92,6 +103,8 @@ def search_movie(tmdb_id=None, imdb_id=None):
 
 def add_movie(movie_data, monitored=True, search_now=False):
     """Add movie to Radarr"""
+    from ui.ui_print import ui_print
+
     try:
         url = f"{base_url.rstrip('/')}/api/v3/movie"
         headers = {'X-Api-Key': api_key, 'Content-Type': 'application/json'}
@@ -132,6 +145,9 @@ def add_movie(movie_data, monitored=True, search_now=False):
 
 def add_from_media(media_item):
     """Add movie from media item to Radarr"""
+    from ui.ui_print import ui_print
+    from ui import ui_settings
+
     if not base_url or not api_key:
         ui_print("Radarr: Not configured (missing base_url or api_key)")
         return False

@@ -1,4 +1,4 @@
-from ui.ui_print import *
+from arr.services import sonarr, radarr
 
 active = []
 
@@ -7,10 +7,8 @@ def get():
     activeservices = []
     for servicename in active:
         if servicename == 'Sonarr':
-            from arr.services import sonarr
             activeservices.append(sonarr)
         elif servicename == 'Radarr':
-            from arr.services import radarr
             activeservices.append(radarr)
     return activeservices
 
