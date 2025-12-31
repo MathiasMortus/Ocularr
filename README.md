@@ -33,7 +33,7 @@ This is a fork of plex_debrid that has been completely refactored to remove all 
 ### Step 1: Install
 
 ```bash
-git clone https://github.com/yourusername/plex_monitor.git
+git clone https://github.com/mathiasmortus/plex_monitor.git
 cd plex_monitor
 pip install -r requirements.txt
 ```
