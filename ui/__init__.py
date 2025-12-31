@@ -120,7 +120,7 @@ def setup():
         if os.path.getsize(config_dir + '/settings.json') > 0 and os.path.isfile(config_dir + '/settings.json'):
             with open(config_dir + '/settings.json', 'r') as f:
                 settings = json.loads(f.read())
-            if settings['Show Menu on Startup'] == "false" or service_mode == True:
+            if settings.get('Show Menu on Startup', 'true') == "false" or service_mode == True:
                 return False
             load()
             return True
