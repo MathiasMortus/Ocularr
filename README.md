@@ -1,6 +1,6 @@
 <div align="center">
 	<img src="https://i.imgur.com/Rk8khjF.png" alt="Pulsarr Logo" width="150"/>
-Ocularr
+<h1>Ocularr</h1>
 
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](VERSION.md)
 [![Python](https://img.shields.io/badge/python-3.7+-green.svg)](https://www.python.org/)
